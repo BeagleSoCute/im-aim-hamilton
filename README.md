@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Im Aim Thai Cuisine website
 
-## Getting Started
-
-First, run the development server:
+Next.js 16 (App Router, Turbopack) · TypeScript · Tailwind CSS v4.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`/styleguide` shows every design token and component (not linked, `noindex`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+scripts/
+  process-images.py     curate + grade + resize raw photos -> public/images, writes images.generated.ts
+  extract-logo.py       temporary transparent logo + favicons cut from the shop-sign PNG
+src/
+  app/                  routes, globals.css (design tokens), icon.png
+  components/
+    ui/                 Button, Container/Section/Heading/Ornament, DishImage, badges, Logo
+    menu/               DishCard
+    layout/             SiteHeader, SiteFooter
+  data/
+    menu.ts             full menu, prices, spice levels, vegan/GF options
+    site.ts             address, phone, hours, order link, socials
+    images.generated.ts generated, do not edit
+docs/missing-photos.md  dishes without photos + AI prompt brief
+```
 
-## Learn More
+## Updating content
 
-To learn more about Next.js, take a look at the following resources:
+- **Menu or prices:** edit `src/data/menu.ts`.
+- **Hours, order link, socials:** edit `src/data/site.ts`.
+- **Photos:** drop the file into `../Food picture im-aim thai cuisine/`, add it to `PHOTOS`
+  in `scripts/process-images.py`, run `python3 scripts/process-images.py` (needs Pillow).
+- **AI stand-in photos** live in `../gen_ai/` and are listed in `AI_PHOTOS` in the same script.
+  The menu labels them as AI illustrations. A real photo (`image:` in `menu.ts`) always replaces them.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Waiting on the restaurant (`TODO(owner)` in code)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The printed menu prints the domain as im-aim-thai-cuisine.co.nz, which does not exist; the real one is
+  im-aim-thaicuisine.co.nz (currently serving an older site with outdated prices and a Dannevirke address)
+- "Skip the Queue" online-ordering URL
+- Instagram and Google Business links (Facebook and YouTube are in)
+- Vector logo (SVG/AI); the current one is cut from the sign image
+- Confirm Massaman is beef only at $24.90
+- Confirm gluten-free claims: the printed menu lists Pad See Ew as GF (soy sauce usually contains
+  wheat) and "satay chicken salad" / "yum duck", which are not on the menu
+- Desserts appear in photos but not on the printed menu: are they sold?
