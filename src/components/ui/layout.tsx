@@ -1,8 +1,13 @@
 import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-export function Container({ className, ...props }: ComponentProps<"div">) {
-  return <div className={cn("mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12", className)} {...props} />;
+export function Container({ wide, className, ...props }: ComponentProps<"div"> & { wide?: boolean }) {
+  return (
+    <div
+      className={cn("mx-auto w-full px-4 sm:px-8 lg:px-12", wide ? "max-w-[100rem]" : "max-w-7xl", className)}
+      {...props}
+    />
+  );
 }
 
 type SectionProps = ComponentProps<"section"> & {

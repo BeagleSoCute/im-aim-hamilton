@@ -48,32 +48,23 @@ export function MenuNav({ sections }: MenuNavProps) {
   }, [active]);
 
   return (
-    <nav
-      aria-label="Menu categories"
-      className="sticky top-20 z-40 border-y border-gold-500/15 bg-ink-950/90 backdrop-blur-md"
-    >
+    <nav aria-label="Menu categories" className="sticky top-20 z-40 border-y border-cream-50/[0.06] bg-ink-950/95 backdrop-blur-md">
       <ul
         ref={listRef}
-        className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-3 [scrollbar-width:none] sm:px-6 lg:px-10 [&::-webkit-scrollbar]:hidden"
+        className="mx-auto flex max-w-[100rem] gap-1.5 overflow-x-auto px-4 py-3 [scrollbar-width:none] sm:px-8 lg:px-12 [&::-webkit-scrollbar]:hidden"
       >
         {sections.map(({ id, label }) => (
-          <li key={id} className="shrink-0 first:ml-auto last:mr-auto last:pr-3">
+          <li key={id} className="shrink-0">
             <a
               href={`#${id}`}
               data-id={id}
               aria-current={active === id ? "true" : undefined}
               className={cn(
-                "relative block px-3.5 py-4 text-[0.65rem] font-semibold uppercase tracking-[0.2em] transition-colors duration-300",
-                active === id ? "text-gold-300" : "text-cream-400 hover:text-cream-100",
+                "block whitespace-nowrap rounded-full px-4 py-2 text-[0.95rem] font-medium transition-colors duration-300",
+                active === id ? "bg-gold-400 text-ink-950" : "text-cream-300 hover:bg-cream-50/[0.06] hover:text-cream-50",
               )}
             >
               {label}
-              <span
-                className={cn(
-                  "absolute inset-x-3.5 bottom-0 h-px origin-center bg-gold-400 transition-transform duration-500 ease-luxe",
-                  active === id ? "scale-x-100" : "scale-x-0",
-                )}
-              />
             </a>
           </li>
         ))}

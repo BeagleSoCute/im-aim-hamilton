@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DishCard } from "@/components/menu/dish-card";
-import { DietaryBadge, SpiceIndicator } from "@/components/ui/badges";
+import { SpiceIndicator } from "@/components/ui/badges";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Eyebrow, Heading, Ornament, Section, SectionHeader } from "@/components/ui/layout";
 import { Wordmark } from "@/components/ui/logo";
@@ -18,7 +18,7 @@ const swatches = [
   { group: "Chilli", tokens: ["chili-400", "chili-500"] },
 ];
 
-const sampleCards = ["W1", "A6", "W3"].map(findItem);
+const sampleCards = ["W1", "A6", "WS11"].map(findItem);
 
 export default function StyleguidePage() {
   return (
@@ -90,20 +90,18 @@ export default function StyleguidePage() {
           </div>
 
           <div className="grid gap-6">
-            <Eyebrow>Menu badges</Eyebrow>
+            <Eyebrow>Spice levels</Eyebrow>
             <div className="flex flex-wrap items-center gap-6">
               <SpiceIndicator levels={["mild"]} />
               <SpiceIndicator levels={["mild", "medium"]} />
               <SpiceIndicator levels={["medium"]} />
               <SpiceIndicator levels={["medium", "hot"]} />
               <SpiceIndicator levels={["extra-hot"]} />
-              <DietaryBadge option="vegan" />
-              <DietaryBadge option="gluten-free" />
             </div>
           </div>
 
           <div className="grid gap-8">
-            <Eyebrow>Dish cards (third one shows the photo-coming-soon placeholder)</Eyebrow>
+            <Eyebrow>Dish cards</Eyebrow>
             <div className="grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {sampleCards.map(({ item, category }) => (
                 <DishCard key={item.code} item={item} category={category} />

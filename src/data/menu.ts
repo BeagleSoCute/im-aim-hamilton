@@ -28,8 +28,6 @@ export const menu: MenuCategory[] = [
         serving: "4 pcs · home-made",
         description: "Vegetables and rice vermicelli.",
         price: 12.5,
-        dietary: ["vegan"],
-        image: "spring-roll",
       },
       {
         code: "A2",
@@ -37,7 +35,6 @@ export const menu: MenuCategory[] = [
         serving: "Fresh tofu",
         description: "Tofu with satay sauce and crushed peanuts.",
         price: 12.5,
-        dietary: ["vegan", "gluten-free"],
         image: "deep-fry-tofu",
       },
       {
@@ -60,7 +57,6 @@ export const menu: MenuCategory[] = [
         serving: "4 sticks · home-made sauce",
         description: "Thai BBQ chicken with satay sauce.",
         price: 14,
-        dietary: ["gluten-free"],
         image: "satay-chicken",
       },
       {
@@ -129,21 +125,18 @@ export const menu: MenuCategory[] = [
         code: "C1",
         name: "Green Curry",
         description: "Green curry paste and coconut milk with bamboo shoots, beans, chilli and mixed vegetables.",
-        dietary: ["vegan"],
         image: "green-curry",
       },
       {
         code: "C2",
         name: "Red Curry",
         description: "Red curry paste cooked with coconut milk, bamboo shoots, beans and mixed vegetables.",
-        dietary: ["vegan"],
         image: "red-curry",
       },
       {
         code: "C3",
         name: "Panang Curry",
         description: "Panang paste cooked with coconut milk and crushed peanuts, beans, pumpkin and mixed vegetables.",
-        dietary: ["vegan"],
         image: "panang-curry",
       },
       {
@@ -172,7 +165,6 @@ export const menu: MenuCategory[] = [
         name: "Pad Kra Pao",
         description: "Stir fried basil with chilli and garlic, beans, baby corn and capsicum.",
         spice: ["medium"],
-        dietary: ["vegan"],
         image: "pad-kra-pao",
       },
       {
@@ -180,7 +172,6 @@ export const menu: MenuCategory[] = [
         name: "Stir Fried Cashew Nut",
         description: "Mushroom, onion, baby corn, vegetables and cashew nuts with chilli soybean sauce.",
         spice: ["mild", "medium"],
-        dietary: ["vegan", "gluten-free"],
         image: "cashew-nut",
       },
       {
@@ -188,21 +179,18 @@ export const menu: MenuCategory[] = [
         name: "Sweet and Sour",
         description: "Stir fried vegetables with tomato, pineapple and onion in sweet and sour sauce.",
         spice: ["mild"],
-        dietary: ["vegan"],
       },
       {
         code: "W4",
         name: "Pad Pak Satay",
         description: "Stir fried vegetables topped with peanut sauce.",
         spice: ["mild"],
-        dietary: ["vegan", "gluten-free"],
       },
       {
         code: "W5",
         name: "Stir Fried Ginger",
         description: "Mushroom, onion, celery, capsicum and vegetables with ginger.",
         spice: ["mild", "medium"],
-        dietary: ["vegan", "gluten-free"],
         image: "stir-fried-ginger",
       },
       {
@@ -210,7 +198,6 @@ export const menu: MenuCategory[] = [
         name: "Pad Prik Pao",
         description: "Stir fried green beans, onion, mushroom, spring onion and capsicum with chilli soybean oil.",
         spice: ["mild", "medium"],
-        dietary: ["vegan"],
         image: "pad-prik-pao",
       },
     ],
@@ -233,7 +220,6 @@ export const menu: MenuCategory[] = [
         name: "Sizzling Meat",
         description: "Vegetables and meat with oyster sauce.",
         spice: ["mild"],
-        dietary: ["gluten-free"],
         image: "sizzling-meat",
       },
       {
@@ -241,7 +227,6 @@ export const menu: MenuCategory[] = [
         name: "Sizzling Garlic & Pepper",
         description: "Stir fried garlic and pepper with meat and vegetables.",
         spice: ["medium"],
-        dietary: ["gluten-free"],
         image: "sizzling-garlic-pepper",
       },
       {
@@ -250,7 +235,6 @@ export const menu: MenuCategory[] = [
         description:
           "Stir fried chilli and garlic with Thai herb krachai, whole green peppercorns, beans, mushroom, capsicum and baby corn.",
         spice: ["hot"],
-        dietary: ["gluten-free"],
         image: "sizzling-pad-cha",
       },
       {
@@ -259,7 +243,6 @@ export const menu: MenuCategory[] = [
         serving: "Vegetables only, no meat",
         description: "Stir fried chilli soybean oil with vegetables, onion, mushroom, capsicum, baby corn and cashew nuts.",
         price: 23,
-        dietary: ["vegan", "gluten-free"],
         image: "sizzling-vege-cashew",
       },
     ],
@@ -282,7 +265,6 @@ export const menu: MenuCategory[] = [
         description:
           "Deep fried tofu with red onion, chilli, garlic, lemon juice, coriander, spring onion, tomato and bean sprouts.",
         price: 23.9,
-        dietary: ["gluten-free"],
         image: "yum-tofu",
       },
       {
@@ -315,7 +297,6 @@ export const menu: MenuCategory[] = [
         description:
           "Pork belly with chilli, garlic, yum sauce, salad dressing, red onion, coriander, tomato, cucumber and spring onion.",
         price: 26.9,
-        dietary: ["gluten-free"],
         image: "yum-pork-belly",
       },
       {
@@ -346,7 +327,6 @@ export const menu: MenuCategory[] = [
         name: "Thai Fried Rice",
         description: "Egg, onion, beans and vegetables.",
         spice: ["mild"],
-        dietary: ["vegan", "gluten-free"],
         image: "thai-fried-rice",
       },
       {
@@ -354,7 +334,6 @@ export const menu: MenuCategory[] = [
         name: "Tom Yum Fried Rice",
         description: "Onion, tomato, vegetables and mushroom, with the flavours of tom yum.",
         spice: ["mild", "medium"],
-        dietary: ["vegan"],
         image: "tom-yum-fried-rice",
       },
       {
@@ -362,14 +341,12 @@ export const menu: MenuCategory[] = [
         name: "Basil Thai Fried Rice",
         description: "Beans, baby corn, capsicum, chilli and basil paste.",
         spice: ["medium"],
-        dietary: ["vegan"],
       },
       {
         code: "R4",
         name: "Pineapple Fried Rice",
         description: "Pineapple, egg, onion, curry powder, capsicum, cashew nuts and mixed vegetables.",
         spice: ["mild"],
-        dietary: ["vegan"],
         image: "pineapple-fried-rice",
       },
       {
@@ -382,8 +359,6 @@ export const menu: MenuCategory[] = [
         code: "N2",
         name: "Pad See Ew",
         description: "Stir fried flat rice noodles with egg, vegetables and soybean paste.",
-        // TODO(owner): printed menu lists Pad See Ew as gluten-free; soy sauce usually contains wheat. Confirm.
-        dietary: ["vegan", "gluten-free"],
       },
       {
         code: "N3",
@@ -396,7 +371,6 @@ export const menu: MenuCategory[] = [
         code: "N4",
         name: "Hokkien Noodles with Curry",
         description: "Choice of green curry or red curry with hokkien noodles.",
-        dietary: ["vegan"],
       },
       {
         code: "N5",
@@ -410,7 +384,6 @@ export const menu: MenuCategory[] = [
         description:
           "Hokkien noodles with hot chilli, basil, krachai, baby corn, mushroom, capsicum, beans, chilli and garlic.",
         spice: ["medium", "hot"],
-        dietary: ["vegan"],
         image: "drunken-noodle",
       },
     ],
@@ -577,7 +550,7 @@ export const menu: MenuCategory[] = [
       },
       {
         code: "WS11",
-        name: "Chicken with Gravy & Chips",
+        name: "Thai BBQ Chicken",
         serving: "Thigh",
         description: "Chicken and vegetables topped with gravy sauce, with chips.",
         price: 25.9,
@@ -599,6 +572,19 @@ export const extras: ProteinOption[] = [
 
 /** The printed menu's gluten-free and vegan page, reproduced as listed. */
 export const dietaryLists = {
+  vegan: {
+    title: "Vegan",
+    note: "All vegan orders must be mentioned to our front staff.",
+    items: [
+      "Spring rolls",
+      "Deep fried tofu with satay sauce",
+      "All wok dishes",
+      "All curries",
+      "All fried rice",
+      "Sizzling vegetables with cashew nut",
+      "Pad see ew, hokkien curry noodles, drunken noodles",
+    ],
+  },
   "gluten-free": {
     title: "Gluten Free",
     note: "All gluten-free orders must be mentioned to our front staff.",
@@ -617,19 +603,6 @@ export const dietaryLists = {
       "Pad see ew noodles",
     ],
   },
-  vegan: {
-    title: "Vegan",
-    note: "All vegan orders must be mentioned to our front staff.",
-    items: [
-      "Spring rolls",
-      "Deep fried tofu with satay sauce",
-      "All wok dishes",
-      "All curries",
-      "All fried rice",
-      "Sizzling vegetables with cashew nut",
-      "Pad see ew, hokkien curry noodles, drunken noodles",
-    ],
-  },
 } as const;
 
 export const spiceLabels = {
@@ -637,11 +610,6 @@ export const spiceLabels = {
   medium: "Medium",
   hot: "Hot",
   "extra-hot": "Extremely hot",
-} as const;
-
-export const dietaryLabels = {
-  vegan: { short: "V", long: "Vegan on request" },
-  "gluten-free": { short: "GF", long: "Gluten-free on request" },
 } as const;
 
 export const allergyNotice = "All food allergies, please mention to our front staff.";

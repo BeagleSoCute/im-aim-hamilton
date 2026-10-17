@@ -35,7 +35,7 @@ QUALITY = 82
 
 # slug -> (folder, source filename, alt text)
 # Only photos that passed curation are listed. Rejected (too small / poor
-# composition): pic1, pic2, pic6, pic18, pic28, pic39, front, yellow curry,
+# composition): pic1, pic2, pic6, pic18, pic39, front, yellow curry,
 # lamb shank x2, pic52.
 PHOTOS: dict[str, tuple[str, str, str]] = {
     # --- Venue -------------------------------------------------------------
@@ -44,7 +44,7 @@ PHOTOS: dict[str, tuple[str, str, str]] = {
     "interior-dining": ("venue", "about us or headlwebsite im-aim thai cuisine.webp", "The dining room at Im Aim Thai Cuisine"),
     "wok-fire": ("venue", "wok.jpg", "Flames rising from a wok in the Im Aim kitchen"),
     # --- Appetizers --------------------------------------------------------
-    "spring-roll": ("dishes", "pic5.jpg", "Home-made spring rolls served upright with sweet chilli sauce"),
+    "spring-roll": ("gallery", "pic5.jpg", "Home-made spring rolls served upright with sweet chilli sauce"),
     "spring-roll-plate": ("gallery", "pic3.jpg", "Crispy spring rolls with sweet chilli dipping sauce"),
     "deep-fry-tofu": ("dishes", "pic4.jpg", "Golden fried tofu with satay sauce"),
     "satay-chicken": ("dishes", "pic7.jpg", "Chicken satay skewers with peanut sauce"),
@@ -79,8 +79,9 @@ PHOTOS: dict[str, tuple[str, str, str]] = {
     "yum-gai-zab": ("dishes", "pic25.jpg", "Crispy chicken Thai salad"),
     "yum-tofu": ("dishes", "pic26.jpg", "Crispy tofu Thai salad"),
     "yum-gai-yang": ("dishes", "yum gai yang.png", "Grilled chicken thigh salad"),
-    "deep-fry-prawn-salad": ("dishes", "pic29.jpg", "Crispy prawn salad with cashews"),
-    "yum-beef": ("dishes", "pic27.jpg", "Spicy Thai beef salad"),
+    "deep-fry-prawn-salad": ("dishes", "pic28.JPG", "Deep fried prawn salad with dressing"),
+    "prawn-salad-cashew": ("gallery", "pic29.jpg", "Crispy prawn salad with cashews"),
+    "yum-beef": ("dishes", "yum beef salad - fireside.webp", "Yum beef salad with tomato, red onion and fresh herbs"),
     "yum-pork-belly": ("dishes", "pic30.jpg", "Crispy pork belly salad"),
     "yum-salmon": ("dishes", "pic31.JPG", "Fresh salmon yum salad"),
     "som-tum-carrot": ("gallery", "thai salad - som tum caarot im-aim thai cuisine.jpg", "Carrot som tum salad"),
@@ -113,6 +114,13 @@ PHOTOS: dict[str, tuple[str, str, str]] = {
     "dessert-banana-split": ("gallery", "pic51.jpg", "Banana split"),
     "dessert-oreo-sundae": ("gallery", "pic53.JPG", "Oreo sundae"),
     "dessert-brownie": ("gallery", "pic54.jpg", "Chocolate brownie with vanilla ice cream"),
+}
+
+
+# Optional crops for real photos, as fractions (left, top, right, bottom).
+CROPS: dict[str, tuple[float, float, float, float]] = {
+    "yum-beef": (0.0, 0.36, 1.0, 1.0),  # drop the fireplace, keep the plate
+    "deep-fry-prawn-salad": (0.0, 0.29, 1.0, 0.8),  # drop the steel bench above and below
 }
 
 
@@ -159,6 +167,7 @@ def blur_data_url(img: Image.Image) -> str:
 # AI-generated stand-ins for dishes with no real photo: menu code -> file in ../gen_ai/.
 # A real photo always wins: once a dish has `image:` set in src/data/menu.ts this is ignored.
 AI_PHOTOS: dict[str, tuple[str, str]] = {
+    "A1": ("Spring Rolls", "spring_roll.jpeg"),
     "A3": ("Prawn Pastry", "Prawn Pastry.jpeg"),
     "A4": ("Curry Puffs", "curry puff.jpeg"),
     "W3": ("Sweet and Sour", "Sweet and Sour.jpeg"),
@@ -202,6 +211,10 @@ def main() -> int:
             print(f"missing: {src.name}", file=sys.stderr)
             return 1
         img = load(src)
+        if slug in CROPS:
+            w, h = img.size
+            l, t, r, b = CROPS[slug]
+            img = img.crop((int(w * l), int(h * t), int(w * r), int(h * b)))
         if ai_code:
             # The AI shots show the dining room behind the table; crop in on the plate.
             w, h = img.size
@@ -219,6 +232,10 @@ def main() -> int:
             f'  "{slug}": {{ src: "/images/{folder}/{slug}.jpg", width: {w}, height: {h}, '
             f'alt: {json.dumps(alt)}, blurDataURL: "{blur_data_url(img)}"{ai_flag} }},'
         )
+        if slug in CROPS:
+            w, h = img.size
+            l, t, r, b = CROPS[slug]
+            img = img.crop((int(w * l), int(h * t), int(w * r), int(h * b)))
         if ai_code:
             ai_by_code.append(f'  {json.dumps(ai_code)}: "{slug}",')
         print(f"{folder:8} {slug:28} {w}x{h}  {dest.stat().st_size // 1024}KB")

@@ -12,9 +12,6 @@ export type SiteImage = {
 
 export type SpiceLevel = "mild" | "medium" | "hot" | "extra-hot";
 
-/** Available on request; guests must tell staff when ordering. */
-export type DietaryOption = "vegan" | "gluten-free";
-
 export type ProteinOption = {
   name: string;
   price: number;
@@ -30,7 +27,6 @@ export type MenuItem = {
   price?: number;
   /** Levels the kitchen offers for this dish. A single entry means "this level only". */
   spice?: SpiceLevel[];
-  dietary?: DietaryOption[];
   image?: ImageSlug;
   note?: string;
 };

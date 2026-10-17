@@ -23,7 +23,7 @@ src/
     menu/               DishCard
     layout/             SiteHeader, SiteFooter
   data/
-    menu.ts             full menu, prices, spice levels, vegan/GF options
+    menu.ts             full menu, prices, spice levels, extras, allergens
     site.ts             address, phone, hours, order link, socials
     images.generated.ts generated, do not edit
 docs/missing-photos.md  dishes without photos + AI prompt brief
@@ -46,6 +46,4 @@ docs/missing-photos.md  dishes without photos + AI prompt brief
 - Instagram and Google Business links (Facebook and YouTube are in)
 - Vector logo (SVG/AI); the current one is cut from the sign image
 - Confirm Massaman is beef only at $24.90
-- Confirm gluten-free claims: the printed menu lists Pad See Ew as GF (soy sauce usually contains
-  wheat) and "satay chicken salad" / "yum duck", which are not on the menu
 - Desserts appear in photos but not on the printed menu: are they sold?

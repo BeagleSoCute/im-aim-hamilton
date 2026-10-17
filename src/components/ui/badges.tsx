@@ -1,5 +1,5 @@
-import { dietaryLabels, spiceLabels } from "@/data/menu";
-import type { DietaryOption, SpiceLevel } from "@/data/types";
+import { spiceLabels } from "@/data/menu";
+import type { SpiceLevel } from "@/data/types";
 import { cn } from "@/lib/cn";
 
 const chilliCount: Record<SpiceLevel, number> = { mild: 0, medium: 1, hot: 2, "extra-hot": 3 };
@@ -39,17 +39,5 @@ export function SpiceIndicator({
       )}
       <span>{label}</span>
     </span>
-  );
-}
-
-export function DietaryBadge({ option }: { option: DietaryOption }) {
-  const { short, long } = dietaryLabels[option];
-  return (
-    <abbr
-      title={long}
-      className="inline-flex h-5 min-w-5 items-center justify-center rounded-full border border-gold-500/40 px-1.5 text-[0.6rem] font-bold tracking-wider text-gold-300 no-underline"
-    >
-      {short}
-    </abbr>
   );
 }
