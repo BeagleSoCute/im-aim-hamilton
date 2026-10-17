@@ -43,7 +43,5 @@ export const site = {
 // `ready: false` items are shown but do nothing when clicked until the page is built.
 export const nav = [
   { href: "/menu", label: "Menu", ready: true },
-  { href: "/about", label: "Our Story", ready: false },
-  { href: "/gallery", label: "Gallery", ready: false },
   { href: "/contact", label: "Visit", ready: false },
 ] as const;

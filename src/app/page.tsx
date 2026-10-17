@@ -7,7 +7,7 @@ import { findItem } from "@/data/menu";
 import { site } from "@/data/site";
 
 // First pass of the home page, built to exercise the design system.
-// Full home page (story, gallery, reviews, map) comes in phase 3.
+// Full home page (reviews, map) comes in phase 3.
 
 const featured = ["SP1", "N1", "SZ3"].map(findItem);
 
